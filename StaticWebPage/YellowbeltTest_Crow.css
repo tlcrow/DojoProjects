@@ -1,0 +1,235 @@
+#darkgraywrapper{
+    width: 970px;
+    height: 1200px;
+    background-color: rgb(26,26,26);
+    border-right: 8px rgb(20,20,20) solid;
+    border-left: 8px rgb(20,20,20) solid;
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#main{
+    width: 970px;
+    height: 345px;
+    background-color: rgb(26,26,26);
+    border-bottom: 5px rgb(59,59,59) solid;
+    position: relative;
+    bottom: 53px;
+}
+
+#grayheader{
+    width: 970px;
+    height: 55px;
+    background-color: rgb(26,26,26); 
+}
+
+#grayheader img{
+    width: 250px;
+    height: 80px;
+    display: inline;
+    position: relative;
+    top: 18px;
+}
+
+#grayheader p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline;
+    vertical-align: top;
+    position: relative;
+    left: 520px;
+    top: 50px;
+}
+
+#graybuttons{
+    width: 970px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 10pt;
+    background: linear-gradient(rgb(81,81,81), rgb(50,50,50), rgb(20,20,20));
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#graybuttons p{
+    display: inline;
+    color: white;
+    position: relative;
+    left: 20px;
+
+}
+
+#graybuttons ul{
+    display: inline;
+    vertical-align: top;
+    color: gray;
+}
+
+#graybuttons li{
+    display: inline;
+    vertical-align: top;
+    margin: 7px;
+    border-left: 1px grey solid;
+    padding-left: 18px;
+}
+
+#graybottomofpicture{
+    width: 970px;
+    height: 1px;
+    background-color: rgb(26,26,26);
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#graybottomofpicture img{
+    width: 50px;
+    height: 40px;
+    position: relative;
+    bottom: 80px;
+    left: 30px;
+}
+
+.orangeheader{
+    width: 150px;
+    height: 300px;
+}
+
+#graybottomofpicture h3{
+    color: rgb(217,117,56);
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    bottom: 90px;
+    left: 30px;
+}
+
+#graybottomofpicture p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    position: relative;
+    bottom: 105px;
+    left: 30px;
+}
+
+#slashedgraybox{
+    width: 970px;
+    height: 135px;
+    background-image: url(background.png);
+    background-repeat: repeat-x;
+    /* background: repeating-linear-gradient(to bottom right,rgb(26,26,26),black 1%); */
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#slashedgraybox h2{
+    font-weight: normal;
+    padding-left: 20px;
+}
+
+#slashedgraybox p{
+    width: 650px;
+    font-size: 10pt;
+    padding-left: 20px;
+}
+
+#slashedgraybox h4{
+    width: 120px;
+    height: 30px;
+    font-weight: normal;
+    background: linear-gradient(rgb(249,153,100), rgb(225,130,75), rgb(217,117,56));
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 5pt;
+    position: relative;
+    left: 800px;
+    bottom: 70px;
+}
+#grayportfolio{
+    width: 175px;
+    height: 300px;
+    background-color: rgb(26,26,26);
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#grayportfolio h5{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14pt;
+    position: relative;
+    bottom: 50px;
+    left: 20px;
+}
+
+#grayportfolio h6{
+    color: rgb(217,117,56);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12pt;
+    position: relative;
+    bottom: 30px;
+}
+
+#grayportfolio a{
+    color: rgb(217,117,56);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-style: italic;
+    position: relative;
+    left: 800px;
+    bottom: 98px;
+}
+
+#grayportfolio img{
+    width: 200px;
+    height: 125px;
+    border: 5px rgb(59,59,59) solid;
+}
+
+#grayportfolio p{
+    color: white;
+    font-size: 10pt;
+    position: relative;
+    bottom: 60px;
+}
+
+#dancing{
+    position: relative;
+    left: 20px;
+    bottom: 80px;
+}
+
+#van{
+    position: relative;
+    left: 260px;
+    bottom: 400px;  
+}
+
+#lovers{
+    position: relative;
+    left: 500px;
+    bottom: 720px;
+}
+
+#city{
+    position: relative;
+    left: 740px;
+    bottom: 1040px;
+}
+
+#grayfooter{
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    position: relative;
+    left: 700px;
+    top: 315px;
+}
+
+.selected {
+    color: red;
+}
+
