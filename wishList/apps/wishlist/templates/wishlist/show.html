@@ -1,0 +1,26 @@
+<!doctype html>
+
+ <html lang="en"> 
+    <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <title>{{item_info.item_name}}</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <br>
+            <h5><a href="/dashboard">Home</a> | <a href="/logout">Logout</a></h5>
+            <div class="text-center">
+                <h2>{{item_info.item_name}}</h2>
+            </div>
+            <br>
+            <h5> Users who added this product/item under their wish list:</h5>
+            <br>
+            {% for Object in joined_info %}
+                <p><strong>{{Object.first_name}} {{Object.last_name}}</strong></p>
+            {% endfor %}
+        </div>
+    </body>
+</html>

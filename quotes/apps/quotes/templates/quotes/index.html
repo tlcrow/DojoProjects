@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en"> 
+    <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <title>Login/Registration</title>
+        <style>
+        #login {
+            border:black solid 1px;
+            width: 400px;
+            position: absolute;
+            flex-flow: row wrap;
+            padding: 10px;
+        }
+        #register{
+            border: black solid 1px;
+            width: 400px;
+            position: relative;
+            left: 500px;
+            padding: 10px;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <br>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <font color="red"><li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></font>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div id="login">
+                <h2>Login</h2>
+                <form action='/login' method= 'post'>
+                    {% csrf_token %}
+                <p><strong>Email: </strong><input type='text' name="email"></p>
+                <p><strong>Password: </strong><input type='text' name='password'></p>
+                <input type='submit' value='Login' class="btn-sm">
+            </form>
+        </div>
+        <div id="register">
+            <h2>Register</h2>
+            <form action='/registration' method= 'post'>
+                {% csrf_token %}
+                <p><strong>Name: </strong><input type='text' name='name'></p>
+                <p><strong>Alias: </strong><input type='text' name="alias"></p>
+                <p><strong>Email: </strong><input type='text' name="email"></p>
+                <p><strong>Password: </strong><input type='text' name="password"></p>
+                <p><strong>Confirm Password: </strong><input type='text' name="confirm_password"></p>
+                <p><strong>Date of Birth: </strong><input type='date' name="dob"</p>
+                <p><input type='submit' value='Register' class="btn-sm"></p>
+            </form>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <title>Quotes</title>
+
+  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <h5><a href="/logout">Logout</a></h5>
+    <h4>Welcome, {{ request.session.alias }}!</h4>
+    <div class="text-center">
+        <h3>Quotable Quotes</h3>
+    </div>
+    <table class="table table-striped">
+        <tbody>
+        {% for Puppy in all %}
+        <!-- Puppy is a list of quote objects, with the users favorites removed  -->
+            <tr>
+                <td>{{Puppy.message}}</td>
+                <!--  Puppy.id is the ID of the quote object.  -->
+                <td>Author: <a href="/users/{{Puppy.created_by.id}}">{{Puppy.created_by.alias}}</a></td>
+                <td><a href="/mylist/{{Puppy.id}}"><button class="btn-sm">Add to My List</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+        <h3>Your Favorites</h3>
+    </div>
+    <table class="table table-striped">
+        <tbody>
+            {% for quote in favorites %}
+                <tr>
+                    <td>{{quote.message}}</td>
+                    <td>Author: <a href="/users/{{quote.created_by.id}}">{{quote.created_by.alias}}</a></td>
+                    <td><a href="/remove/{{quote.id}}"><button class="btn-sm">Remove</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+        <h4>Contribute a Quote</h4>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <font color="red"><li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></font>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action='/add' method= 'post'>
+            {% csrf_token %}
+            <p><strong>Quote By: </strong><input type='text' name='author_name'></p>
+            <p><strong>Message: </strong><textarea name='message'></textarea></p>
+            <input type='submit' value='Submit' class="btn-sm">
+        </form>
+    </div>
+    </div>
+</body>
+</html>
