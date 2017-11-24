@@ -1,0 +1,28 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <br>
+    <h1>Hi {{currentUser.first_name}}!</h1>
+    <p><a href= "" (click)="goLogout()">Logout</a> | 
+    <a [routerLink]="['new_question']">Add a Question</a></p>
+    <div class="text-center">
+      <form>
+        <strong>Search question</strong> <input type="text" name="search" [(ngModel)]="search">
+      </form>
+    </div>
+    <br>
+    <table class="table-striped">
+      <tr *ngFor="let question of questions">
+        <div *ngIf="question.question.toUpperCase().includes(search.toUpperCase())">
+          <td><strong>Question:</strong> {{question.question}} | </td>
+          <td> <strong># of Answers: </strong>{{question._answer.length}} </td>
+          <td> | <a [routerLink]="['/question', question._id]">Show</a> | 
+              <a [routerLink]="['/question', 'new_answer', question._id]">Answer</a></td>
+        </div>
+      </tr>
+    </table>
+  </div>
+</body>

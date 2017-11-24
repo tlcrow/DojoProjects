@@ -1,0 +1,39 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <br>
+    <p><a href= "" (click)="goLogout()">Logout</a>
+    <div class="text-center">
+      <h3>{{question.question}}</h3>
+      <h5>{{question.details}}</h5>
+    </div>
+    <form (submit)="onSubmit()" #answerForm=ngForm>
+      <label for="answer"><strong>Your Answer</strong></label>
+        <input required
+              [(ngModel)]="answer.answer"
+              #question_question="ngModel"
+              type="text"
+              id="answer"
+              name="answer"
+              minlength="5">
+              
+      <br>
+      <label for="details"><strong>Supporting details for your answer</strong> (Optional)</label>
+        <input required
+              [(ngModel)]="answer.details"
+              #question_details="ngModel"
+              type="text"
+              id="details"
+              name="details">
+      <br>
+      <button [disabled]="answerForm.invalid" type="submit" class="btn-sm">Submit</button>
+      <a [routerLink]="['']">Cancel</a>
+      <!-- <div *ngIf="answer_answer.errors" class="alert alert-danger">
+          Answer is required.
+      </div> -->
+    </form>
+  </div>
+</body>

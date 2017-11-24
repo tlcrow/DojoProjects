@@ -1,0 +1,47 @@
+<!doctype html>
+
+ <html lang="en"> 
+    <head>
+    <meta charset="utf-8">
+    <title>MongooseDashboard</title>
+    </head>
+
+    <body>
+        <h1>Register</h1>
+        <%if(typeof(regErrs) != "undefined"){%>
+            <%for(err in regErrs){%>
+                <div class="alert alert-danger alert-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <%if(typeof(regErrs[err].message) != "undefined"){%>
+                        <%=regErrs[err].message%>
+                    <%}else{%>
+                        <%=regErrs[err]%>
+                    <%}%>
+                </div>                
+            <%}%>
+        <%}%>
+        <form action='/registration' method='post'>
+            <p>First Name: <input type='text' name='first_name' value=''></p>
+            <p>Last Name: <input type='text' name='last_name' value=''></p>
+            <p>Email: <input type='text' name='email' value=''></p>
+            <p>Password: <input type='text' name='password' value=''></p>
+            <p>Password Confirmation: <input type='text' name='password_confirmation' value=''></p>
+            <p>Birthday: <input type='date' name='birthday' value=''></p>
+            <input type='submit' value='Register'>
+        </form>
+        <h1>Login</h1>
+        <%if(typeof(logErrs) != "undefined"){%>
+            <%for(err in logErrs){%>
+                <div class="alert alert-danger alert-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <%=logErrs[err]%>
+                </div>                
+            <%}%>
+        <%}%>
+        <form action='/login' method='post'>
+            <p>Email: <input type='text' name='email' value=''></p>
+            <p>Password: <input type='text' name='password' value=''></p>
+            <input type='submit' value='Login'>
+        </form>
+    </body>
+</html>

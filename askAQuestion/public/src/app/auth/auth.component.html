@@ -1,0 +1,27 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container text-center">
+        <br>
+        <h3>Q&A</h3>
+        <form (submit)="onRegister()" #registerForm=ngForm>
+            <label for="first_name">Name:</label>
+            <input required
+              type="text"
+              id="first_name"
+              name="first_name"
+              minlength="1"
+              [(ngModel)]="userRegister.first_name"
+              #userRegister_first_name="ngModel">
+            <br>
+            <br>
+            <button [disabled]="registerForm.invalid" type="submit" class="btn-sm">Enter</button>
+            <br>
+            <div *ngIf="userRegister_first_name.errors">
+                <font color="red">Name is required</font>
+            </div>
+        </form>
+    </div>
+</body>
