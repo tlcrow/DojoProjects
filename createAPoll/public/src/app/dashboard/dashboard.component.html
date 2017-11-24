@@ -1,0 +1,35 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <br>
+  <div class="container">
+    <p><a href= "" (click)="goLogout()">Logout</a></p>
+  <div class="text-center">
+    <form>
+      <strong>Search: </strong><input type="text" name="search" [(ngModel)]="search">
+    </form>
+    <br>
+    <h4><a [routerLink]="['/poll/new']">Create a New Poll</a></h4>
+  </div>
+  <table class="table table-striped">
+    <!-- <thead>
+      <th>Name</th>
+      <th>Survey Question</th>
+      <th>Date Posted</th>
+      <th>Action</th>
+    </thead> -->
+  <tbody *ngFor="let poll of polls">
+      <div *ngIf="poll.question.toUpperCase().includes(search.toUpperCase())">
+      <td><strong> Name: </strong>{{poll.creator_first}} {{poll.creator_last}}</td>
+      <td><strong> Poll: </strong><a [routerLink]="['/poll', poll._id]"> {{poll.question}} </a></td>
+      <td> <strong>Date Created: </strong>{{poll.createdAt | date: 'longDate'}} </td>
+      <div *ngIf="poll.creator_email === currentUser.email">
+        <td><button (click)="delete(poll._id)" class="btn-sm">Delete</button></td>
+      </div>
+    </div>
+  </tbody>
+</table>
+</div>
+</body>

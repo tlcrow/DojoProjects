@@ -1,0 +1,86 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <br>
+  <div class="container">
+    <p><a [routerLink]="['/dashboard']">Cancel</a></p>
+    <div class="text-center">
+      <h3>New Poll</h3>
+<form (submit)="onSubmit()" #pollForm=ngForm>
+  <div class="group-form">
+    <label for="question"><strong>Question:</strong></label>
+      <input required
+              type="text"
+              id="question"
+              name="question"
+              [(ngModel)]="poll.question"
+              minlength="8"
+              #poll_question="ngModel">
+    <div *ngIf="poll_question.errors">
+        <font color="red">Question is required to have 8 characters</font>
+    </div>
+    </div>
+    <div class="group-form">
+    <label for="option_one"><strong>Option 1:</strong></label>
+      <input required
+              type="text"
+              id="option_one"
+              name="option_one"
+              [(ngModel)]="poll.option_one"
+              minlength="3"
+              #poll_option_one="ngModel">
+    <div *ngIf="poll_option_one.errors">
+      <font color="red">Option 1 is required to have 3 characters</font>
+    </div>
+    </div>
+    <div class="group-form">
+    <label for="option_two"><strong>Option 2:</strong></label>
+      <input required
+            type="text"
+            id="option_two"
+            name="option_two"
+            [(ngModel)]="poll.option_two"
+            minlength="3"
+            #poll_option_two="ngModel"> 
+    <div *ngIf="poll_option_two.errors">
+      <font color="red">Option 2 is required to have 3 characters</font>
+    </div>
+    </div>
+    <div class="group-form">
+    <label for="option_three"><strong>Option 3:</strong></label>
+    <input required
+            type="text"
+            id="option_three"
+            name="option_three"
+            [(ngModel)]="poll.option_three"
+            minlength="3"
+            #poll_option_three="ngModel">
+    <div *ngIf="poll_option_three.errors">
+      <font color="red">Option 3 is required to have 3 characters</font>
+    </div>
+    </div>
+    <div class="group-form">
+    <label for="option_four"><strong>Option 4:</strong></label>
+    <input required
+            type="text"
+            id="option_four"
+            name="option_four"
+            [(ngModel)]="poll.option_four"
+            minlength="3"
+            #poll_option_four="ngModel">
+    <div *ngIf="poll_option_four.errors">
+      <font color="red">Option 4 is required to have 3 characters</font>
+    </div>
+    </div>
+    <button [disabled]="pollForm.invalid" type="submit" class="btn-sm">Create Poll</button>
+    <!-- <div *ngFor="let error of Errs">
+      <div class="alert alert-danger">
+          {{error}}
+      </div>
+    </div> -->
+  </form>
+  </div>
+  </div>
+</body>

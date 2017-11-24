@@ -1,0 +1,118 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+    <br>
+    <h3>Login</h3>
+    <form (submit)="onLogin()" #loginForm=ngForm class="form-horizontal">
+        <div class="form-group">
+        <label for="email">Email</label>
+        <input required
+            type="text"
+            id="email"
+            name="email"
+            [(ngModel)]="userLogin.email"
+            #userLogin_email="ngModel">
+        </div>
+        <div class="form-group">
+        <label for="password">Password</label>
+        <input required
+            type="text"
+            id="password"
+            name="password"
+            [(ngModel)]="userLogin.password"
+            #userLogin_password="ngModel">
+        </div>
+        <button [disabled]="loginForm.invalid" type="submit" class="btn-sm">Login</button>
+        <div *ngIf="userLogin_email.errors && (userLogin_email.touched || userLogin_email.dirty)" class="alert alert-danger">
+            <font color="red">Email is required</font>
+        </div>
+        <div *ngIf="userLogin_password.errors && (userLogin_password.touched || userLogin_password.dirty)">
+            <font color="red">Password is required</font>
+        </div>
+        <font color="red"><p>{{logErrs}}</p></font>
+    <!-- <div *ngFor="let error of errors">
+        <div *ngIf="userLogin_password.touched || userLogin_password.dirty || userLogin_email.touched || userLogin_email.dirty" class="alert alert-danger">
+            {{error}}
+        </div>
+    </div> -->
+    </form>
+    <h3>Registration</h3>
+    <form (submit)="onRegister()" #registerForm=ngForm class="form-horizontal">
+        <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input required
+              type="text"
+              id="first_name"
+              name="first_name"
+              [(ngModel)]="userRegister.first_name"
+              #userRegister_first_name="ngModel">
+        <div *ngIf="userRegister_first_name.errors">
+            <font color="red">First Name is required</font>
+        </div>
+        </div> 
+        <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input required
+              type="text"
+              id="last_name"
+              name="last_name"
+              [(ngModel)]="userRegister.last_name"
+              #userRegister_last_name="ngModel">
+        <div *ngIf="userRegister_last_name.errors">
+            <font color="red">Last Name is required</font>
+        </div>
+        </div>
+        <div class="form-group">
+        <label for="email">Email</label>
+        <input required
+              type="text"
+              id="email"
+              name="email"
+              [(ngModel)]="userRegister.email"
+              #userRegister_email="ngModel">
+        <div *ngIf="userRegister_email.errors">
+            <font color="red">Email is required</font>
+        </div>
+        </div>
+        <div class="form-group">
+        <label for="password">Password</label>
+        <input required
+              type="text"
+              id="password"
+              name="password"
+              [(ngModel)]="userRegister.password"
+              #userRegister_password="ngModel">
+        <div *ngIf="userRegister_password.errors">
+            <font color="red">Password is required</font>
+        </div>
+        </div>
+        <div class="form-group">
+        <label for=password_confirmation>Password Confirmation</label>
+        <input required
+              type="text"
+              id="password_confirmation"
+              name="password_confirmation"
+              [(ngModel)]="userRegister.password_confirmation"
+              #userRegister_password_confirmation="ngModel">
+        <div *ngIf="userRegister_password_confirmation.errors">
+            <font color="red">Password Confirmation is required</font>
+        </div>
+        </div>
+    <!-- <label for="birthday">Birthday:</label>
+      <input required
+              type="date"
+              id="birthday"
+              name="birthday"
+              [(ngModel)]="userRegister.birthday"
+              #userRegister_birthday="ngModel">
+    <br> -->
+        <button [disabled]="registerForm.invalid" type="submit" class="btn-sm">Register</button>
+        <div *ngFor="let error of regErrs">
+            <font color="red">{{error}}</font>
+        </div>
+    </form>
+  </div>
+</body>

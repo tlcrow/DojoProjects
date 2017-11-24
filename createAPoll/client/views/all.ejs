@@ -1,0 +1,19 @@
+<!doctype html>
+
+ <html lang="en"> 
+    <head>
+    <meta charset="utf-8">
+    <title>Logged In</title>
+    </head>
+
+    <body>
+        <h1>Here is all the login info</h1>
+        <% for (var i in registration) {%>
+            <h3>Name: <%= registration[i].first_name %> <%= registration[i].last_name %></h3>
+            <p>Email: <%= registration[i].email %></p>
+            <p>Password: <%= registration[i].password %></p>
+            <p>Birthday: <%= registration[i].birthday %></p>
+        <%}%>
+        <a href="/">Back</a>
+    </body>
+</html>

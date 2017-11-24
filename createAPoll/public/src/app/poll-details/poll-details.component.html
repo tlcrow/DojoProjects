@@ -1,0 +1,45 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+  <br>
+  <p><a [routerLink]="['/dashboard']">Go to Polls</a></p>
+  <div class="text-center">
+    <h3>{{poll.question}}</h3>
+  </div>
+  <h5>Click the Vote Button to Choose One</h5>
+
+  <table class="table-striped">
+    <tr>
+      <th>Option</th>
+      <th>Votes</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td>{{poll.option_one}}</td>
+      <td>{{poll.votes_one}}</td>
+      <td><button (click)="optionOne(poll._id)" class="btn-sm">Vote</button></td>
+    </tr>
+    <tr>
+      <td>{{poll.option_two}}</td>
+      <td>{{poll.votes_two}}</td>
+      <td><button (click)="optionTwo(poll._id)" class="btn-sm">Vote</button></td>
+    </tr>
+    <tr>
+      <td>{{poll.option_three}}</td>
+      <td>{{poll.votes_three}}</td>
+      <td><button (click)="optionThree(poll._id)" class="btn-sm">Vote</button></td>
+    </tr>
+    <tr>
+      <td>{{poll.option_four}}</td>
+      <td>{{poll.votes_four}}</td>
+      <td><button (click)="optionFour(poll._id)" class="btn-sm">Vote</button></td>
+    </tr>
+  
+  </table>
+  </div>
+</body>
+  
+
